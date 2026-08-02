@@ -1,0 +1,21 @@
+-- 주식 정보를 저장하는 테이블 생성
+CREATE TABLE STOCK (
+    STOCK_ID    NUMBER          NOT NULL,   -- 주식번호 (PK)
+    STOCK_NAME  VARCHAR2(50)    NOT NULL,   -- 종목명
+    BUY_PRICE   NUMBER          NOT NULL,   -- 매수가
+    QUANTITY    NUMBER          NOT NULL,   -- 수량
+    BUY_DATE    DATE            NOT NULL,   -- 매수일
+    MEMO        VARCHAR2(300),              -- 메모 (NULL 허용)
+    CONSTRAINT PK_STOCK PRIMARY KEY (STOCK_ID)
+);
+
+-- 테이블/컬럼 설명 (논리명 기준 COMMENT)
+COMMENT ON TABLE STOCK IS '주식 정보';
+COMMENT ON COLUMN STOCK.STOCK_ID   IS '주식번호';
+COMMENT ON COLUMN STOCK.STOCK_NAME IS '종목명';
+COMMENT ON COLUMN STOCK.BUY_PRICE  IS '매수가';
+COMMENT ON COLUMN STOCK.QUANTITY   IS '수량';
+COMMENT ON COLUMN STOCK.BUY_DATE   IS '매수일';
+COMMENT ON COLUMN STOCK.MEMO       IS '메모';
+
+SELECT * FROM STOCK;
