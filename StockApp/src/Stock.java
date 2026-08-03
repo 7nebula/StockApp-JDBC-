@@ -1,7 +1,6 @@
 import java.sql.Date;
 
 /**
- * STOCK 테이블과 매핑되는 VO(Value Object) 클래스
  *
  * STOCK_ID    NUMBER        (PK, 주식번호)
  * STOCK_NAME  VARCHAR2(50)  (종목명)
