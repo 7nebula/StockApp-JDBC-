@@ -1,0 +1,23 @@
+1) 먼저 관리자 계정(system)으로 접속
+
+2) 새 SQL 워크시트 열고 계정 생성 명령 실행
+sql
+-- 새 사용자(계정) 생성
+CREATE USER stock IDENTIFIED BY stock1234;
+
+-- 접속 권한 부여
+GRANT CONNECT, RESOURCE TO stock;
+
+-- 테이블스페이스 사용 권한 (용량 무제한)
+GRANT UNLIMITED TABLESPACE TO stock;
+
+stock → 계정 이름
+stock1234 → 비밀번호 
+각 줄 실행은 Ctrl+Enter 
+
+3) 새 접속 만들기
+Username: stock
+Password: stock1234 (방금 정한 것)
+Hostname: localhost
+Port: 1521
+서비스 이름(SID 아님): xepdb1 
