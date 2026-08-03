@@ -1,0 +1,35 @@
+cmd 버전 계정 생성 순서
+
+1) cmd 열기 (관리자 권한 권장)
+
+2) SQL*Plus로 관리자 접속
+
+sqlplus / as sysdba
+비밀번호 안 물어보고 바로 접속됨
+
+3) PDB로 전환 (중요! 이거 빼먹으면 아까처럼 ORA-65096 에러 남)
+
+sql
+ALTER SESSION SET CONTAINER = XEPDB1;
+
+4) 계정 생성 (원하는 이름/비밀번호로 바꿔서)
+
+sql
+CREATE USER 원하는 이름 IDENTIFIED BY 여기에실제비번;
+
+5) 권한 부여
+
+sql
+GRANT CONNECT, RESOURCE TO 계정명(원하는이름 했던것);
+GRANT UNLIMITED TABLESPACE TO 계정명(원하는이름 했던것);
+
+6) 확인 (선택)
+
+sql
+SELECT username FROM dba_users WHERE username = 'RLARLWJD';
+계정명이 대문자로 나오면 정상 (Oracle은 기본적으로 대문자로 저장해요)
+
+7) 나가기
+
+sql
+exit
